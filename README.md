@@ -17,7 +17,9 @@ Set the environment variable to instruct to flask which application you plan to 
 To setup the database, run the following lines :
 
 ```flask db init```
+
 ```flask db migrate -m "user table"```
+
 ```flask db upgrade```
 
 Then to run the application proper  :
