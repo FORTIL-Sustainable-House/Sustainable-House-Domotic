@@ -5,8 +5,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
 
+# Project environment variable. Set in .flaskenv
 class Config(object):
+    # Encryption secret key
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    # Set DB
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
