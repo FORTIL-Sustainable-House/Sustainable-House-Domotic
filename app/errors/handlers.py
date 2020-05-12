@@ -3,11 +3,13 @@ from app import db
 from app.errors import bp
 
 
+# 404 page not found error page
 @bp.app_errorhandler(404)
 def not_found_error(error):
     return render_template('errors/404.html'), 404
 
 
+# 500 error page
 @bp.app_errorhandler(500)
 def internal_error(error):
     db.session.rollback()
