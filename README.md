@@ -8,7 +8,7 @@ Information about the project will be added as development goes.
 Install python 3 and Pip
 Execute the command here to get all resources required for execution.
 
-```pip install -r requirements.txt```
+```pip3 install -r requirement.txt```
 
 Set the environment variable to instruct to flask which application you plan to run :
 
