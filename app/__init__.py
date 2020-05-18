@@ -31,8 +31,8 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
     # Import Dummy_Feature module
-    from app.dummy_feature import bp as auth_bp
-    app.register_blueprint(auth_bp, url_prefix='/dummy_feature')
+    from app.dummy_feature import bp as dummy_bp
+    app.register_blueprint(dummy_bp, url_prefix='/dummy_feature')
 
     # Push application context and return
     app.app_context().push()
