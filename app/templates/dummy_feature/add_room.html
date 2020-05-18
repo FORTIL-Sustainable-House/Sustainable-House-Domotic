@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add environment</h1>
+    <h1>Add room</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -15,10 +15,6 @@
             {{ form.area.label }}<br>
             {{ form.area(size=30) }}<br>
         </p>        
-        <p>
-            {{ form.environments.label }}<br>
-            {{ form.environments }}<br>
-        </p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}
