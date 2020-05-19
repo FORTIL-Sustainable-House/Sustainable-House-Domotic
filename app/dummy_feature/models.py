@@ -40,7 +40,6 @@ class Sensor(db.Model):
 	sensor_type_id = db.Column (db.Integer, db.ForeignKey('sensor_type.id'), nullable=False)
 	room_id = db.Column(db.Integer, db.ForeignKey('room.id'), nullable=False)
 	temperature_datas = db.relationship('TemperatureData', backref='sensor', lazy=True)
-	features = db.relationship('Feature', backref='sensor', lazy=True)
 
 	def __repr__(self):
 		return '<Sensor {}>'.format(self.name)
@@ -59,6 +58,13 @@ class TemperatureData(db.Model):
 	def __repr__(self):
 		return '<Temperature data {}>'.format(self.value)
 
+# Model for the association table between tables "sensor" and "feature".
+sensorFeature = db.Table(
+	'sensor_feature',
+	db.Column('sensor_id', db.Integer, db.ForeignKey('sensor.id'), primary_key=True),
+	db.Column('feature_id', db.Integer, db.ForeignKey('feature.id'), primary_key=True)
+)
+
 # Model for feature table.
 class Feature(db.Model):
 	# Set the table name.
@@ -71,10 +77,3 @@ class Feature(db.Model):
 
 	def __repr__(self):
 		return '<Feature {}>'.format(self.name)
-
-# Model for the association table between tables "sensor" and "feature".
-sensorFeature = db.Table(
-	'sensor_feature',
-	db.Column('sensor_id', db.Integer, db.ForeignKey('sensor.id'), primary_key=True),
-	db.Column('feature_id', db.Integer, db.ForeignKey('feature.id'), primary_key=True)
-)
