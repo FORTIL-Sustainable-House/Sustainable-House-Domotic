@@ -1,0 +1,21 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>Simple Line Chart</h1>
+        <!-- bar chart canvas element -->
+        <div class="container rounded" style="background-color: #FFFFFF; ">
+                <span class="border border-primary"></span>
+                <canvas id="myChart" width="600" height="400"></canvas>
+        </div>
+        <h1 id="log">NOTHING LOGGED</h1>
+
+        <script type="text/javascript">
+                temperature = {{ temperature | tojson }};
+                timestamps = {{ timestamps | tojson }};
+        </script>
+        <script src="{{ url_for('static', filename='moment.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
+{% endblock %}

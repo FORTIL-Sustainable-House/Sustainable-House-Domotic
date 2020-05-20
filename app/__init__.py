@@ -30,6 +30,10 @@ def create_app(config_class=Config):
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
+    # Import Features module
+    from app.features import bp as features_bp
+    app.register_blueprint(features_bp, url_prefix='/features')
+
     # Import Dummy_Feature module
     from app.dummy_feature import bp as dummy_bp
     app.register_blueprint(dummy_bp, url_prefix='/dummy_feature')
