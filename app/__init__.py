@@ -38,6 +38,10 @@ def create_app(config_class=Config):
     from app.dummy_feature import bp as dummy_bp
     app.register_blueprint(dummy_bp, url_prefix='/dummy_feature')
 
+    # Import management module.
+    from app.management import bp as management_bp
+    app.register_blueprint(management_bp, url_prefix='/management')
+
     # Push application context and return
     app.app_context().push()
     return app

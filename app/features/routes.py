@@ -20,8 +20,11 @@ def temperature():
     values = [10, 9, 8, 7, 6, 4, 7, 8]
     # [12, 19, 3, 5, 2, 3]['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']'# of Votes'
 
-    room_one = Room.query.get(1)
+    # room_one = Room(name="Room1", area=25)
+    # db.session.add(room_one)
+    # db.session.commit()    
     sensor_one = Sensor.query.get(1)
+
     if sensor_one is None:
         sensor_one_type = SensorType.query.get(1)
         if sensor_one_type is None:
@@ -31,17 +34,25 @@ def temperature():
         sensor_one = Sensor(name="SensorToilette", sensor_type_id=sensor_one_type.id, room_id=room_one.id)
         db.session.add(sensor_one)
         db.session.commit()
-    feature_one = Feature.query.get(1)
-    #temperature_plus = TemperatureData(value=random.randint(42,69), sensor_id=sensor_one.id)
-    #db.session.add(temperature_plus)
-    #db.session.commit()
+    # feature_one = Feature.query.get(1)
+    # temperature_plus = TemperatureData(value=random.randint(42,69), sensor_id=sensor_one.id)
+    # db.session.add(temperature_plus)
+    # db.session.commit()
     temperature_plus = TemperatureData.query.filter_by(sensor_id=sensor_one.id).all()
     temp = []
     time = []
+    date_format='%Y-%m-%d %H:%M:%S'
     for a in temperature_plus:
         #a_temp = {'value': a.value, 'snapshot_date': a.snapshot_date}
         temp.append(a.value)
-        time.append(a.snapshot_date.strftime("%Y-%m-%dT%H:%M:%S"))
+        time.append(datetime.datetime.strftime(a.snapshot_date, date_format))
+        # time.append(a.snapshot_date.strftime("%Y-%m-%dT%H:%M:%S"))
     #temperature_plus = json.dumps(list(temperature_plus))
-    return render_template('features/temperature.html', title='Temperature', values=values, labels=labels,
-                           legend=legend, data=0, sensor=sensor_one, feature=feature_one, temperature=temp, timestamps=time)
+    return render_template('features/temperature.html', 
+        title='Temperature', values=values, labels=labels, 
+        legend=legend, data=0, sensor=sensor_one, 
+        temperature=temp, timestamps=time
+    )
+
+def getDate(datetime):
+    return datetime.date
