@@ -73,7 +73,8 @@ class Feature(db.Model):
 	# Set table columns.
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100), nullable=False)
-	enum_type = db.Column(db.Enum('type','other'), nullable=False)
+	enum_type = db.Column(db.Enum('temperature', 'type', 'other'), nullable=False)
+	#sensors = db.relationship('sensor_feature', secondary=sensorFeature)
 
 	def __repr__(self):
 		return '<Feature {}>'.format(self.name)

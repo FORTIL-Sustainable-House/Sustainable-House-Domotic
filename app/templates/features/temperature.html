@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block content_logged %}
-        <h1>Simple Line Chart</h1>
+
         <!-- bar chart canvas element -->
+        {% if sensor_number != None %}
         <div class="container rounded" style="background-color: #FFFFFF; ">
                 <span class="border border-primary"></span>
                 <canvas id="myChart" width="600" height="400"></canvas>
         </div>
-        <h1 id="log">NOTHING LOGGED</h1>
+        <br>
+        {% endif %}
+
+        <div class="list-group">
+        {% for sensor in sensors %}
+                {% if sensor_number == sensor.id %}
+                        <a class="list-group-item list-group-item-action active" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
+                {% else %}
+                        <a class="list-group-item list-group-item-action" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
+                {% endif %}
+        {% endfor %}
+        </div>
 
         <script type="text/javascript">
                 temperature = {{ temperature | tojson }};
