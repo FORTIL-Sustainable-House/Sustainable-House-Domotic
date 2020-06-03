@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content_logged %}
+	<div class='row'>
+		<div class='col-lg-6'>
+		    <h1>Gathered data</h1>
+		    <ul>
+		        <li>Sensor number : {{ sensor.id }}</li>
+		        <p>New temperature entries: {{ values }} over {{ time }} seconds </p>
+		    </ul>
+	    </div>
+    </div>
+{% endblock %}

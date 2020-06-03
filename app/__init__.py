@@ -41,6 +41,10 @@ def create_app(config_class=Config):
     # Import management module.
     from app.management import bp as management_bp
     app.register_blueprint(management_bp, url_prefix='/management')
+    
+    # Import arduino_communication module.
+    from app.arduino_communication import bp as arduino_communication_bp
+    app.register_blueprint(arduino_communication_bp, url_prefix='/arduino_communication')
 
     # Push application context and return
     app.app_context().push()
