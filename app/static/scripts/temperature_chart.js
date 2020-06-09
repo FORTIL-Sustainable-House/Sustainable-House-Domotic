@@ -5,12 +5,22 @@ $(document).ready(function () {
         data: {
             labels: timestamps,
             datasets: [{
-                label: 'Room1 - Temperatures',
-                data: temperature
+                backgroundColor: 'rgba(243, 110, 33, 0.5)',
+                data: temperature,
+                label: 'Room1 - Temperatures'
             }]
         },
         options: {
             scales: {
+                xAxes: [{
+                    type: 'time',
+                    time: {
+                        displayFormats: {
+                            second: 'HH:mm:ss',
+                            day: 'DD/MM'
+                        }
+                    }
+                }],
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
