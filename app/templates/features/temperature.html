@@ -1,30 +1,37 @@
 {% extends "base.html" %}
 
 {% block content_logged %}
-
-        <!-- bar chart canvas element -->
-        {% if sensor_number != None %}
-        <div class="container rounded" style="background-color: #FFFFFF; ">
-                <span class="border border-primary"></span>
-                <canvas id="myChart" width="600" height="400"></canvas>
-        </div>
-        <br>
+<!-- bar chart canvas element -->
+    {% if sensor_number != None %}
+        {% if sensor.name %}
+            <div class="row mt-5">
+                <div class="ml-4">
+                    <span class="title-card">{{ sensor.name }} - Temperature data :</span>
+                </div>
+            </div>
         {% endif %}
 
-        <div class="list-group">
-        {% for sensor in sensors %}
-                {% if sensor_number == sensor.id %}
-                        <a class="list-group-item list-group-item-action active" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
-                {% else %}
-                        <a class="list-group-item list-group-item-action" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
-                {% endif %}
-        {% endfor %}
+        <div class="row mt-5" style="background-color: transparent;">
+            <canvas id="myChart" class="col-12 h-100"></canvas>
         </div>
+    {% endif %}
 
-        <script type="text/javascript">
-                temperature = {{ temperature | tojson }};
-                timestamps = {{ timestamps | tojson }};
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='scripts/temperature_chart.js') }}"></script>
+    <div class="list-group">
+        <span style="color: #212529; font-style: italic;">See others data...</span>
+        {% for sensor in sensors %}
+            {% if sensor_number == sensor.id %}
+                <a class="list-group-item list-group-item-action active" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
+            {% else %}
+                <a class="list-group-item list-group-item-action" href="{{ url_for('features.temperature', sensor=sensor.id) }}">{{ sensor.id }}:{{ sensor.name }}</a>
+           {% endif %}
+        {% endfor %}
+    </div>
+
+    <script type="text/javascript">
+        temperature = {{ temperature | tojson }};
+        timestamps = {{ timestamps | tojson }};
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" integrity="sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/temperature_chart.js') }}"></script>
 {% endblock %}
