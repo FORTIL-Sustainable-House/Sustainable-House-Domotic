@@ -26,7 +26,12 @@ class RegistrationForm(FlaskForm):
 
 # Login form for connection
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign in')
+    username_style={'class':'form-control', 'placeholder':'Username'}
+    password_style={'class':'form-control', 'placeholder':'Password'}
+    remember_me_style={'class':'custom-control-input'}
+    submit_style={'class':'btn form-btn'}
+
+    username = StringField('Username', validators=[DataRequired()], render_kw=username_style)
+    password = PasswordField('Password', validators=[DataRequired()], render_kw=password_style)
+    remember_me = BooleanField('Remember Me', render_kw=remember_me_style)
+    submit = SubmitField('Sign in', render_kw=submit_style)
