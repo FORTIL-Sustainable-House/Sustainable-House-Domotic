@@ -1,0 +1,42 @@
+.auth-span {
+	color: #212529;
+}
+
+/*
+ * Form
+*/
+form {
+	background-color: #d8d8d8;
+	padding: 1rem;
+	-webkit-box-shadow: 7px 7px 5px 0px rgba(243,110,33,0.75);
+	-moz-box-shadow: 7px 7px 5px 0px rgba(243,110,33,0.75);
+	box-shadow: 7px 7px 5px 0px rgba(243,110,33,0.75);
+}
+
+.auth-link {
+	color: #f36e21;
+}
+
+.form-control {
+	border-radius: 1.5rem;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+	border-color: #f36e21;
+	background-color: #f36e21;
+}
+
+.custom-control-label {
+	color: #212529;
+}
+
+.form-btn{
+	background-color: #c0c0c0;
+	border-radius: .5rem;
+	padding: .5rem 1.5rem;
+}
+
+::placeholder {
+	color: #f36e21;
+	opacity: 0.5;
+}
