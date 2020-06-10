@@ -26,9 +26,10 @@ def temperature():
         temp = []
         time = []
         date_format = '%Y-%m-%d %H:%M:%S'
-        for a in temperature_plus:
-            temp.append(a.value)
-            time.append(a.snapshot_date.strftime(date_format))
+        if temperature_plus:
+            for a in temperature_plus:
+                temp.append(a.value)
+                time.append(a.snapshot_date.strftime(date_format))
     else:
         sensor_number = None
 
