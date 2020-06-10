@@ -1,11 +1,13 @@
-from app import db
-from app.features import bp
+import datetime
+import json
+import random
+
 from flask import render_template, request
 from flask_login import login_required
+
 from app.dummy_feature.models import Sensor, sensorFeature, SensorType, TemperatureData, Feature, Room
-import random
-import json
-import datetime
+from app.features import bp
+from app import db
 
 
 # Feature selection page
