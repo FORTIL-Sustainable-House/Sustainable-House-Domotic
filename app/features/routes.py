@@ -10,21 +10,6 @@ from app.features import bp
 from app import db
 
 
-# Feature selection page
-@bp.route('/feature_select')
-@login_required
-def feature_selector():
-    features = Feature.query.all()
-    if len(features) <= 0:
-        sensor = Sensor.query.get(1)
-        feature = Feature(name='Temperature Pot de fleur', enum_type='temperature')
-        feature.sensors.append(sensor)
-        db.session.add(feature)
-        db.session.commit()
-        features = Feature.query.all()
-    return render_template('features/feature_select.html', features=features)
-
-
 # Temperature feature page
 @bp.route('/temperature')
 @login_required
