@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-
-from app.dummy_feature.models import Room
 from wtforms import FloatField, IntegerField, SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired
+
+from app.dummy_feature.models import Room
 
 # Form to add a new room.
 class RoomForm(FlaskForm):
