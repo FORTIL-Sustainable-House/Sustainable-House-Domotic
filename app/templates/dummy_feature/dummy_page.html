@@ -6,9 +6,9 @@
 		    <h1>My rooms:</h1>
 		    <ul>
 		    {% if rooms %}
-		    {% for room in rooms %}
-		        <li>{{ room.name }}</li>
-		    {% endfor %}
+		        {% for room in rooms %}
+		            <li>{{ room.name }}</li>
+		        {% endfor %}
 		    {% endif %}
 		    </ul>
 		    <p>New room? <a href="{{ url_for('dummy_feature.add_room') }}">Add!</a></p>
