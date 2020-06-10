@@ -18,7 +18,7 @@ To setup the database, run the following lines :
 
 ```flask db init```
 
-```flask db migrate -m "user table"```
+```flask db migrate```
 
 ```flask db upgrade```
 
