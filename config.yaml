@@ -71,6 +71,11 @@ loggers:
         handlers: [console]
         propagate: no
 
+    workers:
+        level: DEBUG
+        handlers: [console, info_file_handler, error_file_handler, debug_file_handler, critical_file_handler, warn_file_handler]
+        propagate: yes
+
     app:
         level: INFO
         handlers: [info_file_handler, error_file_handler, debug_file_handler, critical_file_handler, warn_file_handler]

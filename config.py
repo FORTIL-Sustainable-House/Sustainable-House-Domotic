@@ -25,3 +25,6 @@ class Config(object):
     logger = logging.getLogger(__name__)
 
     logger.debug('This is a debug message')
+
+    CELERY_BROKER_URL = 'redis://localhost:6379'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379'
