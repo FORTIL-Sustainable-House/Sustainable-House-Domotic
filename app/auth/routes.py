@@ -1,11 +1,11 @@
-from flask import render_template, flash, redirect, url_for, request
-from flask_login import current_user, login_user, logout_user, login_required
+from flask import flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.urls import url_parse
 
 from app import db
 from app.auth import bp
 from app.auth.forms import LoginForm, RegistrationForm
-from app.auth.models import User
+from app.models import User
 
 
 # Login page route
