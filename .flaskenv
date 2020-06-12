@@ -1,2 +1,0 @@
-FLASK_APP=SusHouse_v1.py
-SECRET_KEY=ThisIsASecretKey
