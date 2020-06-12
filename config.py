@@ -23,5 +23,3 @@ class Config(object):
 		logging.config.dictConfig(conf)
 
 	logger = logging.getLogger(__name__)
-
-	logger.debug('This is a debug message')
