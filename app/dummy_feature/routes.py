@@ -5,6 +5,9 @@ from app import db
 from app.dummy_feature import bp
 from app.dummy_feature.forms import RoomForm
 from app.dummy_feature.models import Room
+from app.dummy_feature.celery_test import background_task
+
+import logging
 
 # Main page.
 @bp.route('/dummy_page')
@@ -12,6 +15,13 @@ from app.dummy_feature.models import Room
 def dummy_page():
     # Retrieve rooms.
     rooms = Room.query.all()
+    logging.debug("Launching Task")
+    result = background_task.delay(42)
+    logging.debug("Task executing")
+    result.wait()
+    logging.debug("Task execution finished")
+    logging.debug("Task Result : %d" % result)
+
 
     # Render the page
     return render_template(
@@ -19,6 +29,7 @@ def dummy_page():
         title='Dummy Title', 
         rooms=rooms
     )  
+
 
 # Method to add a room.
 @bp.route('/room/add', methods=['GET', 'POST'])
