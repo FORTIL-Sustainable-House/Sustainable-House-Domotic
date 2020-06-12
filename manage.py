@@ -14,5 +14,5 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 
-if __name__ == '__main__':
+if __name__ == 'test':
     manager.run()
