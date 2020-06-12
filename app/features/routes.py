@@ -6,8 +6,8 @@ from flask import render_template, request
 from flask_login import login_required
 
 from app import db
-from app.dummy_feature.models import Sensor, sensorFeature, SensorType, TemperatureData, Feature, Room
 from app.features import bp
+from app.models import Sensor, sensorFeature, SensorType, TemperatureData, Feature, Room
 
 
 # Temperature feature page
