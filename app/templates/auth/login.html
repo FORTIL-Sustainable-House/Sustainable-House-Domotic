@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content_anonymous %}
+	<div class="row justify-content-center">
+		<form class="col-10 col-sm-8 col-md-6 col-lg-4 mt-5" action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+				<div class="form-group row">
+					<div class="col-12">
+						{{ form.username() }}
+					</div>
+				</div>
+				{% for error in form.username.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+				<div class="form-group row">
+					<div class="col-12">
+						{{ form.password() }}
+					</div>
+				</div>
+
+				{% for error in form.password.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+				<div class="form-group row">
+					<div class="col-12">
+						<div class="custom-control custom-checkbox">
+			            	{{ form.remember_me() }} {{ form.remember_me.label(class_="custom-control-label") }}
+			            </div>
+			        </div>
+			    </div>
+    			<div class="form-group row">
+					<div class="col-12 d-flex justify-content-center">
+						{{ form.submit() }}
+					</div>
+				</div>
+			<span class="auth-span">No account? <a class="auth-link" href="{{ url_for('auth.register') }}">Click to Register!</a></span>
+		</form>
+	</div>
+{% endblock %}

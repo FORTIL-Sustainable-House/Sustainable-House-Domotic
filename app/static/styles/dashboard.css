@@ -1,0 +1,202 @@
+body {
+  background-color: #f1f1f1;
+  font-family: 'Lato', sans-serif!important;
+  font-size: 1rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Content
+ */
+
+[role="main"] {
+  padding-top: 48px; /* Space for fixed navbar */
+}
+
+/*
+ * Navbar
+ */
+.navbar .btn {
+  border-color: #fff;
+  color: #fff;
+
+}
+
+.navbar .btn:hover {
+  color: #fff;
+}
+
+.navbar {
+  background-color: #555555;
+}
+
+.navbar-brand {
+  margin-right: 0rem;
+
+}
+
+.nav-link {
+  padding: 0rem 0rem;
+}
+
+.navbar-text {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+/*
+ * Drop down menu
+ */
+
+.dropdown {
+  width: 60%;
+}
+
+.dropdown .btn {
+  background-color: #f58b4d;
+  width: 100%;
+}
+
+.dropdown-menu {
+  background-color: #f58b4d;
+  min-width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: #f69963;
+}
+
+.list-group {
+  padding-top: 80px;
+}
+
+.list-group-item {
+  background-color: transparent;
+}
+
+.list-group-item-action {
+  background-color: transparent;
+  border-color: #f36e21;
+  color: #212529;
+}
+
+.list-group-item.active {
+  background-color: rgba(243, 110, 33, 0.75);
+  border-color: #f36e21;
+  color: #fff;
+}
+
+.left-menu {
+  background-color: #f36e21;
+  padding-top: 15px;
+}
+
+/*
+ * Search bar
+*/
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.form-control {
+  border-color: #f36e21;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #f36e21;
+  font-style: italic;
+}
+
+.searchbar {
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.input-group > .input-group-append > .btn {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-color: #f36e21;
+}
+
+#button-addon5 {
+  background-color: #f36e21;
+}
+
+/*
+ * Card
+*/
+
+.title-card {
+  color: #f36e21;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
